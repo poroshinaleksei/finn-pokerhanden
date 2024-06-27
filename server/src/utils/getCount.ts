@@ -1,6 +1,22 @@
 import { Card } from '../types/card';
 import { Count } from '../types/counts';
 
+const rankMap: { [key: string]: number } = {
+  '2': 2,
+  '3': 3,
+  '4': 4,
+  '5': 5,
+  '6': 6,
+  '7': 7,
+  '8': 8,
+  '9': 9,
+  t: 10,
+  j: 11,
+  q: 12,
+  k: 13,
+  a: 14,
+};
+
 const counts = (arr: string[]): { [key: string]: number } => {
   return arr.reduce((acc: { [key: string]: number }, item: string) => {
     acc[item] = (acc[item] || 0) + 1;
@@ -9,21 +25,6 @@ const counts = (arr: string[]): { [key: string]: number } => {
 };
 
 const rankValue = (rank: string): number => {
-  const rankMap: { [key: string]: number } = {
-    '2': 2,
-    '3': 3,
-    '4': 4,
-    '5': 5,
-    '6': 6,
-    '7': 7,
-    '8': 8,
-    '9': 9,
-    t: 10,
-    j: 11,
-    q: 12,
-    k: 13,
-    a: 14,
-  };
   if (!rankMap[rank]) throw new Error(`Unknown rank: ${rank}`);
   return rankMap[rank];
 };
