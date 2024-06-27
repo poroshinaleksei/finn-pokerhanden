@@ -28,7 +28,7 @@ export const handRankValue = (hand: Count): number => {
   }
 };
 
-export const getWinningHand = (...hands: Card[][]): WinningResult => {
+export const getWinningHand = (hands: Card[][]): WinningResult => {
   let winningHandIndex = 0;
   let winningHand = hands[0];
   let highestValue = handRankValue(getCount(hands[0]));
