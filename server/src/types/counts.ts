@@ -8,4 +8,6 @@ export enum Count {
   'FourOfAKind' = 'Four of a Kind',
   'StraightFlush' = 'Straight Flush',
   'RoyalFlush' = 'Royal Flush',
+  'HighCard' = 'High Card',
+  'InvalidHandSize' = 'Invalid hand size',
 }

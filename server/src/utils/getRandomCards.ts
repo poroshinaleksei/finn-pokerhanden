@@ -10,11 +10,11 @@ const getRandomSuit = (): string => {
 };
 
 const getRandomRank = (): string => {
-  const ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'j', 'q', 'k', 'a'];
+  const ranks = ['2', '3', '4', '5', '6', '7', '8', '9', 't', 'j', 'q', 'k', 'a'];
   return ranks[getRandomNumber(0, ranks.length - 1)];
 };
 
-export const getRandomCards = (): Card[] => {
+export const getFiveRandomCards = (): Card[] => {
   return Array.from({ length: 5 }, () => ({
     rank: getRandomRank(),
     suit: getRandomSuit(),

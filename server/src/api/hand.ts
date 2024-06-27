@@ -1,15 +1,18 @@
 import express from 'express';
-import { Count } from '../types/counts';
-import { getRandomCards } from '../utils/getRandomCards';
+import { getFiveRandomCards } from '../utils/getRandomCards';
 import { HandResponse } from '../types/handResponse';
+import { getCount } from '../utils/getCount';
 
 const router = express.Router();
 
 router.get<{}, HandResponse>('/', (req, res) => {
+  const cards = getFiveRandomCards();
+  const count = getCount(cards);
   const hand: HandResponse = {
-    cards: getRandomCards(),
-    count: Count.Straight,
+    cards,
+    count,
   };
+
   res.json(hand);
 });
 
