@@ -12,7 +12,7 @@ interface Props {
 }
 
 export const ResultTable = ({ results }: Props) => {
-  if (!results) {
+  if (!results || !Array.isArray(results)) {
     return null;
   }
 
@@ -42,8 +42,10 @@ export const ResultTable = ({ results }: Props) => {
               <TableCell component="th" scope="row">
                 {result.count}
               </TableCell>
-              {result.cards.map((card) => (
-                <TableCell align="right">{card.rank + card.suit}</TableCell>
+              {result.cards.map((card, index) => (
+                <TableCell key={index} align="right">
+                  {card.rank + card.suit}
+                </TableCell>
               ))}
             </TableRow>
           ))}
