@@ -9,17 +9,18 @@
 2. **Start the Server**:
    - Navigate to the server directory:
      `cd server`
-     - Pull the latest MongoDB Community Server Docker image:
-       `docker pull mongodb/mongodb-community-server:latest`
+   - Pull the latest MongoDB Community Server Docker image:
+     `docker pull mongodb/mongodb-community-server:latest`
    - Start the services defined in `docker-compose.yml` file:
      `docker-compose up`
 
 ## Client Setup
 
 1. **Install Dependencies**:
-   -Navigate to the client directory and install the necessary npm packages:
-   `cd client`
-   `npm install`
+
+   - Navigate to the client directory: `cd client`
+
+   - Install the necessary npm packages:`npm install`
 
 2. **Start the Client**:
    `npm run start`
