@@ -8,14 +8,7 @@ import { HandResponse } from "../types/handResponse";
 import { Button } from "@mui/material";
 import { ItemData } from "../types/itemData";
 import { StandardImageList } from "../components/imageTable";
-
-const fetchData = async () => {
-  const response = await fetch("http://localhost:5001/api/v1/genereteHands");
-  if (!response.ok) {
-    throw new Error("Network response was not ok");
-  }
-  return response.json();
-};
+import { generateHands } from "../api/generateHands";
 
 const GamePage = () => {
   const [fetchTrigger] = useState(false);
@@ -24,7 +17,7 @@ const GamePage = () => {
   const { data, error, isLoading, isSuccess, refetch } = useQuery<
     HandResponse,
     Error
-  >("dataKey", fetchData, {
+  >("dataKey", generateHands, {
     enabled: fetchTrigger,
   });
 
@@ -40,8 +33,6 @@ const GamePage = () => {
       setItemData(cards);
     }
   }, [data]);
-
-  console.log(itemData);
 
   const handleGetCards = () => {
     refetch();

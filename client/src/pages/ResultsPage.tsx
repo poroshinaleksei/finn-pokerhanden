@@ -6,20 +6,13 @@ import Container from "@mui/material/Container";
 import { Button } from "@mui/material";
 import { HandResponse } from "../types/handResponse";
 import ResultTable from "../components/table";
-
-const fetchData = async () => {
-  const response = await fetch("http://localhost:5001/api/v1/getSavedhands");
-  if (!response.ok) {
-    throw new Error("Network response was not ok");
-  }
-  return response.json();
-};
+import { getSavedHands } from "../api/getSavedHands";
 
 const ResultsPage = () => {
   const [fetchTrigger] = useState(false);
   const { data, error, isLoading, refetch } = useQuery<HandResponse[], Error>(
     "dataKey",
-    fetchData,
+    getSavedHands,
     {
       enabled: fetchTrigger,
     }
