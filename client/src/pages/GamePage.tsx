@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import { useQuery } from "react-query";
 import { HandResponse } from "../types/handResponse";
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { ItemData } from "../types/itemData";
 import { StandardImageList } from "../components/imageTable";
 import { generateHands } from "../api/generateHands";
@@ -54,7 +54,14 @@ const GamePage = () => {
           {isSuccess && (
             <>
               <Box component="section" sx={{ p: 2 }}>
-                {data?.count}
+                <Typography
+                  textAlign={"center"}
+                  variant="h4"
+                  component="div"
+                  sx={{ flexGrow: 1 }}
+                >
+                  {data?.count}
+                </Typography>
               </Box>
               <StandardImageList itemData={itemData} />
             </>
