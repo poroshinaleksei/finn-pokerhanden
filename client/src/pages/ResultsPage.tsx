@@ -29,7 +29,7 @@ const ResultsPage = () => {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="sm">
+      <Container maxWidth="lg">
         <Box
           display="flex"
           flexDirection="row"
